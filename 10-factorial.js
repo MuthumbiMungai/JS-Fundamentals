@@ -2,29 +2,19 @@
 
 /**
  * factorial - Recursively computes the factorial of a number
- * @n: The number to compute factorial for
- * 
- * Return: The factorial of the number, or 1 if n is NaN or <= 1
+ * @n: number (integer)
+ * Return: factorial of n, or 1 if n is NaN or less than 2
  */
 function factorial(n) {
-  if (isNaN(n)) {
+  if (isNaN(n) || n < 2) {
     return 1;
   }
-
-  const num = parseInt(n);
-
-  if (num <= 1) {
-    return 1;
-  }
-
-  return num * factorial(num - 1);
+  return n * factorial(n - 1);
 }
 
-// Get the command-line argument
+// Get the argument from command line
 const arg = process.argv[2];
+const num = parseInt(arg);
 
-// Compute the factorial
-const result = factorial(arg);
-
-// Print the result
-console.log(result);
+// Print the factorial using console.log
+console.log(factorial(num));
